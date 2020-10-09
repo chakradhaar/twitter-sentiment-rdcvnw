@@ -14,6 +14,7 @@ from flask import Flask, request, jsonify, render_template
 from textblob import TextBlob
 import sys, tweepy
 import matplotlib.pyplot as plt
+import os
 
 app = Flask(__name__)
 
@@ -39,10 +40,10 @@ def predict():
     '''
         Obtain your Credentials from Your Twitter's developer account and assign to them to the variables
     '''
-    consumerKey="c4cK1xqfC3MocKF4gPwE0vHFH"
-    consumerSecret="s6T5kM503GQ49mE2ZRNNUtz7VRTNCqHsox1gVOPRFmSv5CHwSV"
-    accessToken="1244402689175420929-BilxLAuVQotLB4HMAWuECgnuCQewmY"
-    accessTokenSecret="sm8ygnOT7Xzjb2iaZL95yR5oPWpJQKIwu7PNgBs8BOnRJ"
+    consumerKey= os.environ['CONSUMER_KEY'] #"c4cK1xqfC3MocKF4gPwE0vHFH"
+    consumerSecret= os.environ['CONSUMER_SECRET'] #"s6T5kM503GQ49mE2ZRNNUtz7VRTNCqHsox1gVOPRFmSv5CHwSV"
+    accessToken= os.environ['ACCESS_KEY'] #"1244402689175420929-BilxLAuVQotLB4HMAWuECgnuCQewmY"
+    accessTokenSecret= os.environ['ACCESS_SECRET'] #"sm8ygnOT7Xzjb2iaZL95yR5oPWpJQKIwu7PNgBs8BOnRJ"
 
     '''
         Obtain authorization access to twitter's api by writing the following code
